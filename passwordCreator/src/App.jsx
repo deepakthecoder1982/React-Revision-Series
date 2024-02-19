@@ -5,7 +5,6 @@ import "./App.css";
 function App() {
   const [password, setPassword] = useState("AxPkl");
   const [length, setLength] = useState(5);
-
   const first = useRef();
   useEffect(() => {
     let charachter = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -23,7 +22,7 @@ function App() {
   }, [length, first.current]);
 
   const handleCopy = async () => {
-    first.current.focus();
+    first.current?.select();
     // console.log(first.current.value);
     // document.getElementById('copy').innerText = "Copping.."
     const copyElment = document.getElementById("copy");
@@ -78,7 +77,9 @@ function App() {
 
   return (
     <>
-      <div className="text-white font-semibold text-xl bg-black w-full h-screen">
+      <div className="text-white font-semibold text-xl bg-black w-full h-screen" >
+        
+        <h1 className="text-3xl p-2 text-center bg-gray-600 rounded shadow shadow-white ">Password generator</h1>
         <div
           id="container"
           className="flex flex-col  w-1/2 m-auto rounded-lg p-2 py-4 text-center relative top-10 bg-gray-900 border-none shadow-md shadow-black"
